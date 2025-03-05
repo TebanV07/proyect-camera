@@ -1,0 +1,4 @@
+<button (click)="photoService.takePhoto()">Tomar Foto</button>
+<div *ngFor="let photo of photoService.photos">
+  <img [src]="photo.webPath" *ngIf="photo.webPath" />
+</div>
