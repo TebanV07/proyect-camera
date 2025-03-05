@@ -8,8 +8,9 @@
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   margin: auto;
+  box-sizing: border-box;
 }
 
 .photo-gallery {
@@ -22,21 +23,25 @@
 }
 
 .gallery-photo {
-  width: 150px;
+  width: calc(33.333% - 10px);
+  max-width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  margin: 5px;
 }
 
 .buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
+  width: 100%;
 }
 
 .capture-btn, .gallery-btn, .clear-btn {
-  background-color: #d67609;
+  background-color: #007bff;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -44,10 +49,12 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s ease;
+  flex-grow: 1;
+  max-width: 200px;
 }
 
 .capture-btn:hover, .gallery-btn:hover, .clear-btn:hover {
-  background-color: #423c00;
+  background-color: #0056b3;
 }
 
 .clear-btn {
@@ -56,4 +63,37 @@
 
 .clear-btn:hover {
   background-color: #a71d2a;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+  .camera-container {
+    padding: 10px;
+    width: 95%;
+    margin: 10px auto;
+  }
+
+  .gallery-photo {
+    width: calc(50% - 10px);
+    max-width: none;
+    height: 120px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .capture-btn, .gallery-btn, .clear-btn {
+    width: 100%;
+    max-width: none;
+    margin: 5px 0;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .gallery-photo {
+    width: 100%;
+    height: 100px;
+  }
 }
