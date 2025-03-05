@@ -1,4 +1,10 @@
-<button (click)="photoService.takePhoto()">Tomar Foto</button>
-<div *ngFor="let photo of photoService.photos">
-  <img [src]="photo.webPath" *ngIf="photo.webPath" />
+<div class="camera-container">
+  <div class="photo-gallery" *ngIf="photoService.photos.length > 0">
+    <img *ngFor="let photo of photoService.photos" [src]="photo.webPath" />
+  </div>
+  <div class="buttons">
+    <button class="capture-btn" (click)="photoService.takePhoto()">📸 Tomar Foto</button>
+    <button class="gallery-btn">🖼️ Ver Galería</button>
+    <button class="clear-btn" (click)="photoService.clearGallery()">🗑️ Limpiar Galería</button>
+  </div>
 </div>

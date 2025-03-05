@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { PhotoService } from './Services/camera.service';
-import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-camera',
-  imports: [NgIf, NgFor],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './camera.component.html',
   styleUrls: ['./camera.component.css']
 })
 export class CameraComponent {
   constructor(public photoService: PhotoService) {}
 }
-
